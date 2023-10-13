@@ -93,7 +93,7 @@
     },
     {
       "id": "time-picker",
-      "xmlTag": "timePicker",
+      "xmlTag": "trainingTimepicker",
       "viewPath": "component-presentations/editor-views/date.svg",
       "bigIcon": "../palette-icons?id=component-presentations/palette-icons/time-picker.svg",
       "icon": "../palette-icons?id=component-presentations/palette-icons/time-picker.svg",

@@ -3,6 +3,7 @@ import {_, Model} from "@flowable/forms";
 import {DesktopTimePicker, LocalizationProvider, MobileTimePicker, TimeView} from '@mui/x-date-pickers';
 import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns';
 import {parseISO} from "date-fns";
+import './FlowableTimePicker.scss'
 
 type TimePickerOptionalAttributes = {
     defaultValue?: Date
@@ -29,9 +30,10 @@ export function FlowableTimePicker(props: Model.Props) {
         }
     }
 
-    const Components = props.Components;
+    // const Label = props.Components.label;
+
     const {config} = props;
-    const {extraSettings, enabled, ignore, visible, defaultValue} = config;
+    const {extraSettings, value, enabled, ignore, visible, defaultValue} = config;
 
 
     const timePickerAttributes: TimePickerOptionalAttributes = {}
@@ -48,20 +50,25 @@ export function FlowableTimePicker(props: Model.Props) {
 
     const TimePickerComponent = pickerType === "digital" ? DesktopTimePicker : MobileTimePicker;
 
-    if (defaultValue) {
+    if (value) {
+        timePickerAttributes.defaultValue = parseISO(value)
+    } else if (defaultValue) {
         timePickerAttributes.defaultValue = parseISO(defaultValue)
     }
 
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns}>
             {!ignore &&
-                <TimePickerComponent label="Basic time picker"
-                                     onChange={v => props.onChange(v)}
-                                     ampm={ampmEnabled}
-                                     timeSteps={{minutes: interval}}
-                                     disabled={!enabled}
-                                     {...timePickerAttributes}
-                />
+                <div>
+                    <TimePickerComponent tabIndex={-1} className={bem('picker')}
+                        label="Basic time picker"
+                                         onChange={v => props.onChange(v)}
+                                         ampm={ampmEnabled}
+                                         timeSteps={{minutes: interval}}
+                                         disabled={!enabled}
+                                         {...timePickerAttributes}
+                    />
+                </div>
             }
         </LocalizationProvider>
         // <div>test   </div>

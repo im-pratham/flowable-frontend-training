@@ -1,1 +1,8 @@
 // Add your custom styles here
+@import "../form-components";
+
+.flowableTimePicker {
+  .name {
+    backdrop-filter: blur();
+  }
+}
