@@ -50,6 +50,193 @@
           "path": "extraSettings.locationToGreet",
           "runtime": true,
           "index": 10
+        },
+        {
+          "id": "greeting",
+          "title": "Greeting",
+          "value": "Hello",
+          "category": "details",
+          "type": "SimpleTextExpression",
+          "path": "extraSettings.greeting",
+          "index": 20,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "map",
+      "xmlTag": "trainingFlowableMap",
+      "title": "Map",
+      "viewPath": "component-presentations/editor-views/button.svg",
+      "bigIcon": "../palette-icons?id=component-presentations/palette-icons/map.svg",
+      "icon": "../palette-icons?id=component-presentations/palette-icons/map.svg",
+      "superId": "base-component",
+      "groups": [
+        "training"
+      ],
+      "layout": [
+        {
+          "type": "layout.form.controls"
+        }
+      ],
+      "properties": [
+        {
+          "id": "center",
+          "title": "Center",
+          "value": "{{[47.37, 8.54]}}",
+          "category": "details",
+          "type": "SimpleTextExpression",
+          "path": "extraSettings.center",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "id": "time-picker",
+      "xmlTag": "timePicker",
+      "viewPath": "component-presentations/editor-views/date.svg",
+      "bigIcon": "../palette-icons?id=component-presentations/palette-icons/time-picker.svg",
+      "icon": "../palette-icons?id=component-presentations/palette-icons/time-picker.svg",
+      "superId": "base-component",
+      "groups": [
+        "training"
+      ],
+      "propertyPackages": [
+        "labelWithDefaultValueAttributes",
+        "commonAttributes",
+        "borderColor",
+        "commonInputAttributes"
+      ],
+      "layout": [
+        {
+          "type": "layout.form.controls"
+        }
+      ],
+      "properties": [
+        {
+          "id": "default-value",
+          "type": "SimpleTextExpression",
+          "category": "details",
+          "index": 10
+        },
+        {
+          "id": "format",
+          "type": "SimpleText",
+          "category": "details",
+          "path": "extraSettings.format",
+          "index": 101,
+          "readonly": false,
+          "visible": true,
+          "dependency": {
+            "enable-time": [
+              "true"
+            ]
+          }
+        },
+        {
+          "id": "interval",
+          "type": "ComboBox",
+          "value": "5",
+          "category": "details",
+          "path": "extraSettings.interval",
+          "index": 102,
+          "dependency": {
+            "picker-type": [
+              "digital"
+            ]
+          },
+          "items": [
+            {
+              "id": "1",
+              "value": "1",
+              "title": "1",
+              "refToView": "none"
+            },
+            {
+              "id": "5",
+              "value": "5",
+              "title": "5",
+              "refToView": "none"
+            },
+            {
+              "id": "10",
+              "value": "10",
+              "title": "10",
+              "refToView": "none"
+            },
+            {
+              "id": "20",
+              "value": "20",
+              "title": "20",
+              "refToView": "none"
+            },
+            {
+              "id": "30",
+              "value": "30",
+              "title": "30",
+              "refToView": "none"
+            }
+          ]
+        },
+        {
+          "id": "picker-type",
+          "type": "ComboBox",
+          "value": "digital",
+          "category": "details",
+          "path": "extraSettings.pickerType",
+          "index": 103,
+          "items": [
+            {
+              "id": "digital",
+              "value": "digital",
+              "title": "Digital",
+              "refToView": "none"
+            },
+            {
+              "id": "analog",
+              "value": "analog",
+              "title": "Analog",
+              "refToView": "none"
+            }
+          ]
+        },
+        {
+          "id": "ampm-time",
+          "type": "Boolean",
+          "value": false,
+          "category": "details",
+          "path": "extraSettings.ampm",
+          "index": 104,
+          "readonly": false,
+          "visible": true
+        },
+        {
+          "id": "format",
+          "type": "ComboBox",
+          "value": "hh:mm",
+          "category": "details",
+          "path": "extraSettings.format",
+          "index": 105,
+          "items": [
+            {
+              "id": "hhmm",
+              "value": "hh:mm",
+              "title": "hh:mm",
+              "refToView": "none"
+            },
+            {
+              "id": "hh",
+              "value": "hh",
+              "title": "hh",
+              "refToView": "none"
+            },
+            {
+              "id": "hhmmss",
+              "value": "hh:mm:ss",
+              "title": "hh:mm:ss",
+              "refToView": "none"
+            }
+          ]
         }
       ]
     }
